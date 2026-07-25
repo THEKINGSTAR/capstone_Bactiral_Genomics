@@ -1,48 +1,258 @@
-# **`Bio-project ID to use - PRJNA1478106`**  
+# 🧬 Bacterial Genomics Capstone Project
 
-## By the end of this capstone, participants should be able to:
+## Whole Genome Sequencing (WGS) Quality Control Pipeline
 
-1. Navigate `NCBI` to locate a BioProject and its associated `SRA` runs, using the same path taught in class (`NCBI` → `BioProject accession` → `SRA Run Selector` → `SRA Explorer` → `Bash download script`)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge\&logo=github)
+![Platform](https://img.shields.io/badge/Platform-Linux-orange?style=for-the-badge\&logo=linux)
+![Language](https://img.shields.io/badge/Scripting-Bash-green?style=for-the-badge\&logo=gnubash)
+![Workflow](https://img.shields.io/badge/Workflow-WGS_QC-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-2. Set up a standard, reproducible project directory before touching any data
+---
 
-3. Retrieve `organism-level` reference metadata (genome size, GC content) to set QC expectations before looking at their own data
+## 📖 Project Overview
 
-4. Download `paired-end` `FASTQ` files and verify integrity (`read counts`, `file sizes`) using `ls -lh`, `du -sh`, `wc -l`
+This repository contains a complete **Whole Genome Sequencing (WGS) Quality Control (QC)** workflow developed as the capstone project for the **Bacterial Genomics** course.
 
-5. Run `FastQC` and aggregate results with `MultiQC`, both `pre-` and `post-` `trimming`, and correctly interpret each module using the `PASS`/`WARN`/`FAIL` framework taught in Module 2
+The project demonstrates a reproducible bioinformatics pipeline beginning with public sequencing data retrieval from the **NCBI Sequence Read Archive (SRA)** and ending with post-trimming quality assessment using **FastQC** and **MultiQC**.
 
-6. Perform `adapter`/`quality` `trimming` with a named tool and justified parameters (referencing the actual flags taught: `ILLUMINACLIP`, `SLIDINGWINDOW:4:20`, `LEADING:3`, `TRAILING:3`, or` fastp auto-detection`)
+The workflow follows standard bioinformatics practices for processing paired-end Illumina sequencing data and emphasizes reproducibility, quality assessment, and interpretation of sequencing quality before and after read trimming.
 
-7. Interpret and compare `pre`/`post`` QC reports`, articulating what changed and why, in a concise written report
+---
 
+# 🎯 Learning Objectives
 
+By completing this project, participants will be able to:
 
-## ***`Dear Participant,`***
+* Navigate the NCBI databases to locate a BioProject and its associated SRA runs.
+* Retrieve sequencing data using the SRA Toolkit.
+* Organize a reproducible bioinformatics project structure.
+* Determine expected genome characteristics (genome size and GC content).
+* Evaluate raw sequencing quality using FastQC.
+* Aggregate QC reports using MultiQC.
+* Perform adapter and quality trimming using fastp or Trimmomatic.
+* Compare sequencing quality before and after trimming.
+* Produce a concise quality-control report suitable for scientific documentation.
 
-For the capstone project, you will complete a full `WGS` ****quality-control**** workflow
+---
 
-- from data retrieval through `FastQC`/`MultiQC` interpretation and trimming
+# 📂 Dataset Information
 
-- and submit your results via the `Google Form` below.
-    >- Capstone Form: `https://forms.gle/xCbzpeSLPXCuEW999 
+| Item                    | Value                            |
+| ----------------------- | -------------------------------- |
+| **BioProject**          | PRJNA1478106                     |
+| **Organism**            | *Pseudomonas* isolates           |
+| **Sequencing Platform** | Illumina                         |
+| **Read Type**           | Paired-End                       |
+| **Number of Samples**   | 10 SRA Runs                      |
+| **Source Database**     | NCBI Sequence Read Archive (SRA) |
 
-## ****What you'll be doing:****
-- Navigate `NCBI` to locate BioProject `PRJNA1478106` and retrieve all 10 associated SRA runs (Pseudomonas isolates) as a single batch
-- Set up a standard project directory (`raw_data`/, `trimmed_reads`/, `fastqc_results`/, `multiqc_results`/, `scripts`/, `logs`/, `results`/, `docs`/) before downloading anything
-- Look up expected genome size and `GC%` for your assigned species to set `QC` expectations
-- Run `FastQC` + `MultiQC` `pre-trim`, interpret each module using the `PASS`/`WARN`/`FAIL` framework from Module 2
-- Trim with fastp or Trimmomatic, with parameters justified by your `pre-trim` findings
-- Re-run `FastQC` + `MultiQC` `post-trim` and submit a short comparative report (`max 100 words `/ `~700 characters`)
+---
 
-## A few notes before you start:
+# 🔬 Project Workflow
 
-- You are working with all 10 `SRR` accessions from `PRJNA1478106` as one batch - a single `raw_data`/ folder and one aggregated `MultiQC` run `pre-trim` and `post-trim`.
+```text
+NCBI BioProject
+        │
+        ▼
+SRA Run Selector
+        │
+        ▼
+FASTQ Download
+        │
+        ▼
+Data Verification
+        │
+        ▼
+FastQC (Pre-trim)
+        │
+        ▼
+MultiQC Summary
+        │
+        ▼
+Read Trimming
+ (fastp / Trimmomatic)
+        │
+        ▼
+FastQC (Post-trim)
+        │
+        ▼
+MultiQC Summary
+        │
+        ▼
+Comparative QC Report
+```
 
-- Two questions in the form (Sections 3 and 6) have a `500-character` limit, and the comparative report in Section 8 has a `700-character` (`~100-word`) limit. The form will block submission until you're under the limit, so draft your answer separately first if it's tight.
+---
 
-## Post-Trim Quality Control Report
-You can view the interactive MultiQC report directly below:
+# 📁 Project Structure
 
+```text
+capstone_Bactiral_Genomics/
+│
+├── raw_data/
+│
+├── trimmed_reads/
+│
+├── fastqc_results/
+│
+├── multiqc_results/
+│
+├── scripts/
+│
+├── logs/
+│
+├── results/
+│
+├── docs/
+│
+├── post_trim_multiqc_report.html
+│
+└── README.md
+```
 
-<iframe src="https://htmlpreview.github.io/?https://github.com/THEKINGSTAR/capstone_Bactiral_Genomics/blob/main/post_trim_multiqc_report.html" width="100%" height="600px" style="border:none;"></iframe>
+---
+
+# 🛠 Software Used
+
+| Software    | Purpose                   |
+| ----------- | ------------------------- |
+| SRA Toolkit | Download sequencing data  |
+| FastQC      | Read quality assessment   |
+| MultiQC     | Aggregate QC reports      |
+| fastp       | Read trimming             |
+| Trimmomatic | Alternative trimming tool |
+| Bash        | Workflow automation       |
+| Linux       | Analysis environment      |
+
+---
+
+# 📊 Quality Control Workflow
+
+## Pre-Trimming
+
+Quality assessment was first performed on the raw sequencing reads using **FastQC**.
+
+The generated reports were aggregated with **MultiQC** to evaluate:
+
+* Per Base Sequence Quality
+* Per Sequence Quality Scores
+* Adapter Content
+* Sequence Duplication Levels
+* GC Content
+* Overrepresented Sequences
+* Sequence Length Distribution
+
+---
+
+## Read Trimming
+
+Reads were trimmed using either:
+
+* **fastp** (automatic adapter detection)
+
+or
+
+* **Trimmomatic**
+
+Typical trimming parameters include:
+
+```text
+ILLUMINACLIP
+SLIDINGWINDOW:4:20
+LEADING:3
+TRAILING:3
+MINLEN:36
+```
+
+---
+
+## Post-Trimming
+
+Following trimming, FastQC and MultiQC were executed again to evaluate improvements in sequencing quality and confirm the successful removal of adapters and low-quality bases.
+
+---
+
+# 📈 Interactive Reports
+
+## 📄 Post-Trimming MultiQC Report
+
+GitHub does not allow embedding interactive HTML reports directly inside a README.
+
+➡ **Open the interactive report here:**
+
+https://htmlpreview.github.io/?https://raw.githubusercontent.com/THEKINGSTAR/capstone_Bactiral_Genomics/main/post_trim_multiqc_report.html
+
+If GitHub Pages is enabled for this repository, the report can also be accessed directly from:
+
+```
+https://thekingstar.github.io/capstone_Bactiral_Genomics/post_trim_multiqc_report.html
+```
+
+---
+
+# ✅ Quality Assessment Checklist
+
+* [x] BioProject identified
+* [x] SRA runs retrieved
+* [x] Project directory organized
+* [x] Genome metadata collected
+* [x] Raw FASTQ files verified
+* [x] Pre-trim FastQC completed
+* [x] Pre-trim MultiQC completed
+* [x] Adapter trimming performed
+* [x] Post-trim FastQC completed
+* [x] Post-trim MultiQC completed
+* [x] Comparative QC report prepared
+
+---
+
+# 📚 Capstone Objectives
+
+The project includes the complete workflow required for the capstone assessment:
+
+1. Navigate NCBI to locate BioProject **PRJNA1478106**.
+2. Retrieve all associated paired-end sequencing runs.
+3. Organize a reproducible project directory.
+4. Obtain genome size and GC-content metadata.
+5. Assess sequencing quality before trimming.
+6. Trim adapters and low-quality bases.
+7. Reassess sequencing quality after trimming.
+8. Compare pre- and post-trimming quality metrics.
+9. Produce a concise quality-control report.
+10. Submit the required deliverables.
+
+---
+
+# 🚀 Reproducibility
+
+This repository is organized to ensure that the complete workflow can be reproduced on any Linux system with the required software installed.
+
+Each analysis step is documented, and all scripts can be executed independently to regenerate the results from the original sequencing data.
+
+---
+
+# 📖 References
+
+* NCBI Sequence Read Archive (SRA)
+* NCBI BioProject Database
+* FastQC Documentation
+* MultiQC Documentation
+* fastp Documentation
+* Trimmomatic Documentation
+
+---
+
+# 👨‍💻 Author
+
+**Khaled Mohamed Fathallah**
+
+Bioinformatics Researcher | Data Engineer | Software Engineer
+
+---
+
+# 📜 License
+
+This repository is intended for educational and research purposes.
+
+If you use this workflow as a reference, please consider citing the original software packages used throughout the analysis.
