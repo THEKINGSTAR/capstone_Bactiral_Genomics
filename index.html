@@ -1,408 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bacterial Genomics Capstone</title>
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
-
-        body{
-            font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
-            background:#f5f7fa;
-            color:#2c3e50;
-            line-height:1.7;
-        }
-
-        header{
-            background:linear-gradient(135deg,#00695c,#00897b);
-            color:white;
-            padding:70px 20px;
-            text-align:center;
-        }
-
-        header h1{
-            font-size:3rem;
-            margin-bottom:15px;
-        }
-
-        header p{
-            font-size:1.2rem;
-            max-width:900px;
-            margin:auto;
-        }
-
-        .container{
-            width:90%;
-            max-width:1200px;
-            margin:auto;
-            padding:40px 0;
-        }
-
-        .card{
-            background:white;
-            border-radius:12px;
-            padding:30px;
-            margin-bottom:30px;
-            box-shadow:0 8px 20px rgba(0,0,0,.08);
-        }
-
-        h2{
-            color:#00695c;
-            margin-bottom:20px;
-        }
-
-        table{
-            width:100%;
-            border-collapse:collapse;
-        }
-
-        table th,
-        table td{
-            padding:12px;
-            border-bottom:1px solid #ddd;
-            text-align:left;
-        }
-
-        table th{
-            background:#00695c;
-            color:white;
-        }
-
-        pre{
-            background:#1f2937;
-            color:#f8f8f2;
-            padding:20px;
-            border-radius:8px;
-            overflow:auto;
-        }
-
-        .buttons{
-            display:flex;
-            flex-wrap:wrap;
-            gap:20px;
-            justify-content:center;
-            margin-top:20px;
-        }
-
-        .btn{
-            display:inline-block;
-            padding:15px 30px;
-            text-decoration:none;
-            color:white;
-            background:#00695c;
-            border-radius:8px;
-            font-weight:bold;
-            transition:.3s;
-        }
-
-        .btn:hover{
-            background:#004d40;
-            transform:translateY(-2px);
-        }
-
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-        }
-
-        .feature{
-            background:#fafafa;
-            border-left:5px solid #00897b;
-            padding:20px;
-            border-radius:8px;
-        }
-
-        footer{
-            background:#263238;
-            color:white;
-            text-align:center;
-            padding:30px;
-            margin-top:40px;
-        }
-
-        code{
-            color:#c62828;
-            font-weight:bold;
-        }
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bacterial Genomics Capstone</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--accent:#2ea043;--text:#e6edf3;--muted:#8b949e}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header{padding:70px 20px;text-align:center;background:linear-gradient(135deg,#0d1117,#1f6feb)}
+.container{max-width:1100px;margin:auto;padding:24px}
+h1{margin:0;font-size:3rem}h2{color:#58a6ff}
+.subtitle{color:#c9d1d9;max-width:800px;margin:16px auto}
+.badges span{display:inline-block;background:#21262d;padding:8px 14px;border-radius:20px;margin:5px;border:1px solid #30363d}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:var(--card);padding:20px;border-radius:14px;border:1px solid #30363d}
+.stat{font-size:2rem;color:var(--accent);font-weight:bold}
+.buttons{display:flex;flex-wrap:wrap;gap:16px}
+.btn{display:inline-block;background:var(--accent);color:white;text-decoration:none;padding:14px 20px;border-radius:10px;font-weight:bold}
+.btn:hover{filter:brightness(1.1)}
+pre{background:#010409;padding:18px;border-radius:10px;overflow:auto}
+footer{text-align:center;padding:30px;color:var(--muted);border-top:1px solid #30363d;margin-top:30px}
+table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid #30363d;text-align:left}
+th{color:#58a6ff}
+</style>
 </head>
-
 <body>
-
 <header>
-
 <h1>🧬 Bacterial Genomics Capstone</h1>
-
-<p>
-Whole Genome Sequencing (WGS) Quality Control Workflow using
-FastQC, MultiQC, and fastp for quality assessment of
-<i>Pseudomonas</i> isolates retrieved from the
-NCBI Sequence Read Archive (SRA).
-</p>
-
+<p class="subtitle">A reproducible Whole Genome Sequencing (WGS) quality-control workflow using FastQC, MultiQC, and fastp for <i>Pseudomonas</i> isolates (BioProject PRJNA1478106).</p>
+<div class="badges">
+<span>Linux</span><span>Bash</span><span>FastQC</span><span>MultiQC</span><span>fastp</span><span>Illumina</span><span>NCBI SRA</span>
+</div>
 </header>
 
 <div class="container">
 
-<div class="card">
+<section class="grid">
+<div class="card"><div class="stat">10</div>SRA Runs</div>
+<div class="card"><div class="stat">20</div>FASTQ Files</div>
+<div class="card"><div class="stat">2</div>Interactive MultiQC Reports</div>
+<div class="card"><div class="stat">100%</div>Pipeline Completed</div>
+</section>
 
-<h2>📖 Project Overview</h2>
+<section class="card">
+<h2>Project Overview</h2>
+<p>This project demonstrates a complete bacterial genomics QC workflow from downloading sequencing data from NCBI to generating publication-quality quality control reports. The workflow includes raw read assessment, adapter trimming, post-trimming validation, and comparative quality analysis.</p>
+</section>
 
-<p>
-
-This repository demonstrates a complete and reproducible
-Whole Genome Sequencing (WGS) quality-control workflow developed
-for the Bacterial Genomics Capstone Project.
-
-The pipeline starts from downloading sequencing data from the
-NCBI Sequence Read Archive (SRA), performs comprehensive quality
-assessment, trims adapters and low-quality bases, and finally
-generates interactive MultiQC reports for comparative analysis.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>🧬 Dataset Information</h2>
-
+<section class="card">
+<h2>Dataset</h2>
 <table>
-
-<tr>
-<th>Item</th>
-<th>Value</th>
-</tr>
-
-<tr>
-<td>BioProject</td>
-<td>PRJNA1478106</td>
-</tr>
-
-<tr>
-<td>Organism</td>
-<td><i>Pseudomonas</i> isolates</td>
-</tr>
-
-<tr>
-<td>Sequencing Platform</td>
-<td>Illumina</td>
-</tr>
-
-<tr>
-<td>Read Type</td>
-<td>Paired-End</td>
-</tr>
-
-<tr>
-<td>Total Samples</td>
-<td>10 SRA Runs</td>
-</tr>
-
-<tr>
-<td>Source</td>
-<td>NCBI Sequence Read Archive (SRA)</td>
-</tr>
-
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>BioProject</td><td>PRJNA1478106</td></tr>
+<tr><td>Organism</td><td><i>Pseudomonas</i> isolates</td></tr>
+<tr><td>Platform</td><td>Illumina</td></tr>
+<tr><td>Read Type</td><td>Paired-End</td></tr>
+<tr><td>Samples</td><td>10 SRA Runs</td></tr>
 </table>
+</section>
 
+<section class="card", align="center">
+    <h2>🔬 Analysis Workflow</h2>
+
+    <div class="workflow">
+
+        <div class="step">
+            🌐
+            <span>NCBI BioProject</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            📥
+            <span>SRA Download</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            ✅
+            <span>FASTQ Validation</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            📊
+            <span>FastQC<br>Pre-Trimming</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            📈
+            <span>MultiQC Summary</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            ✂️
+            <span>fastp Trimming</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            📊
+            <span>FastQC<br>Post-Trimming</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            📈
+            <span>MultiQC Summary</span>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step result">
+            📝
+            <span>Comparative QC Report</span>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="card"  >
+<div align="center">
+<h2>Interactive Reports</h2>
+
+<div class="buttons", align="center" >
+<a class="btn" href="multiqc_results/pre_trim_multiqc_report.html" target="_blank">📈 Pre-Trim MultiQC</a>
+<a class="btn" href="multiqc_results/post_trim_multiqc_report.html" target="_blank">📉 Post-Trim MultiQC</a>
+<a class="btn" href="https://github.com/THEKINGSTAR/capstone_Bactiral_Genomics" target="_blank">📁 GitHub Repository</a>
 </div>
-
-<div class="card">
-
-<h2>🔬 Workflow</h2>
-
-<pre>
-NCBI BioProject
-
-        │
-
-        ▼
-
-SRA Download
-
-        │
-
-        ▼
-
-FASTQ Validation
-
-        │
-
-        ▼
-
-FastQC (Pre-trim)
-
-        │
-
-        ▼
-
-MultiQC Summary
-
-        │
-
-        ▼
-
-fastp Trimming
-
-        │
-
-        ▼
-
-FastQC (Post-trim)
-
-        │
-
-        ▼
-
-MultiQC Summary
-
-        │
-
-        ▼
-
-Comparative Quality Assessment
-</pre>
-
-</div>
-
-<div class="card">
-
-<h2>📊 Interactive Reports</h2>
-
-<p style="text-align:center;">
-Open the interactive reports generated during the analysis.
-</p>
-
-<div class="buttons">
-
-    <a class="btn"
-       href="multiqc_results/pre_trim_multiqc_report.html"
-       target="_blank"
-       rel="noopener noreferrer">
-
-        📈 Pre-Trim MultiQC Report
-
-    </a>
-
-    <a class="btn"
-       href="multiqc_results/post_trim_multiqc_report.html"
-       target="_blank"
-       rel="noopener noreferrer">
-
-        📉 Post-Trim MultiQC Report
-
-    </a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>🛠 Software Used</h2>
-
-<div class="grid">
-
-<div class="feature">
-<h3>FastQC</h3>
-Quality assessment of raw sequencing reads.
-</div>
-
-<div class="feature">
-<h3>MultiQC</h3>
-Aggregated visualization of quality metrics.
-</div>
-
-<div class="feature">
-<h3>fastp</h3>
-Adapter removal and quality trimming.
-</div>
-
-<div class="feature">
-<h3>SRA Toolkit</h3>
-Download sequencing data from NCBI.
-</div>
-
-<div class="feature">
-<h3>Bash</h3>
-Workflow automation.
-</div>
-
-<div class="feature">
-<h3>Linux</h3>
-Execution environment.
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>📂 Repository</h2>
-
-<p>
-
-Source code, scripts, reports, and documentation are available
-in the GitHub repository.
-
-</p>
-
-<div class="buttons">
-
-<a class="btn"
-   href="https://github.com/THEKINGSTAR/capstone_Bactiral_Genomics"
-   target="_blank"
-   rel="noopener noreferrer">
-
-    📁 View GitHub Repository
-
-</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>👨‍💻 Author</h2>
-
-<p>
-
-<b>Khaled Mohamed Fathallah</b>
-
-<br><br>
-
-Bioinformatics Researcher • Data Engineer • Software Engineer
-
-</p>
-
-</div>
+</section>
+
+<section class="grid">
+<div class="card"><h2>Software</h2><ul><li>FastQC</li><li>MultiQC</li><li>fastp</li><li>SRA Toolkit</li><li>Bash</li><li>Linux</li></ul></div>
+<div class="card"><h2>Repository</h2><pre>data/
+scripts/
+fastqc_results/
+multiqc_results/
+analysis/
+assembly/
+annotation/
+results/</pre></div>
+</section>
+
+<section class="card">
+<h2>Author</h2>
+<p><strong>Khaled Mohamed Fathallah</strong><br>
+Bioinformatics Researcher • Data Engineer • Software Engineer</p>
+</section>
 
 </div>
 
 <footer>
-
-<p>
-
-🧬 Bacterial Genomics Capstone Project
-
-<br>
-
-Developed using FastQC, MultiQC, fastp, and the NCBI Sequence Read Archive.
-
-</p>
-
+Bacterial Genomics Capstone • GitHub Pages • 2026
 </footer>
-
 </body>
 </html>
