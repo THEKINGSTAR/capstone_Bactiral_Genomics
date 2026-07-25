@@ -1,36 +1,45 @@
-#!usr/bin/bash
+#!/bin/bash
 
-#1
-cd data/raw
+# Exit immediately if a command exits with a non-zero status
+set -e
 
-# Extract FASTQ data (using 4 threads, adjust -e if you have more/less cores)
-for file in SRR*; do
-  fasterq-dump --split-files "$file" -e 4
+echo "=== 1. Setting up directory structure ==="
+mkdir -p data/raw data/trimmed fastqc_results multiqc_results logs
+
+echo "=== 2. Downloading SRA datasets (PRJNA1478106) ==="
+# Add your SRA accession download loop or commands here (e.g., prefetch / fasterq-dump)
+# Example accession list or automated download:
+accessions=("SRR39139285" "SRR39146138" "SRR39146893" "SRR39146894" "SRR39146895" "SRR39146896" "SRR39146897" "SRR39146898" "SRR39146899" "SRR39146900")
+
+for acc in "${accessions[@]}"; do
+    if [ ! -d "data/raw/$acc" ]; then
+        echo "Downloading $acc..."
+        fasterq-dump "$acc" -O data/raw/
+    fi
 done
 
-# Go back to the root of your project directory
-cd ../..
-
-
-#2
-# Run FastQC on all raw FASTQ files
+echo "=== 3. Running Pre-Trim FastQC ==="
 fastqc data/raw/*.fastq -o fastqc_results/ -t 4
-
-# Run MultiQC to aggregate the pre-trim results
 multiqc fastqc_results/ -o multiqc_results/ -n pre_trim_multiqc_report.html
 
-
-#3
-# Trim the Reads (using fastp)
-for raw_file in data/raw/*.fastq; do
-  # Extract the base name (e.g., SRR39139285)
-  base=$(basename "$raw_file" .fastq)
-  
-  # Run fastp with a sliding window Q20 cutoff
-  fastp -i "$raw_file" \
-        -o trimmed_reads/"${base}_trimmed.fastq" \
-        -h logs/"${base}_fastp.html" \
-        -j logs/"${base}_fastp.json" \
-        --cut_tail --cut_tail_mean_quality 20 \
-        --length_required 36
+echo "=== 4. Executing Quality Trimming with fastp ==="
+for R1 in data/raw/*_1.fastq; do
+    R2="${R1%_1.fastq}_2.fastq"
+    base=$(basename "$R1" _1.fastq)
+    
+    echo "Trimming $base..."
+    fastp -i "$R1" -I "$R2" \
+          -o "data/trimmed/${base}_1.trim.fastq" -O "data/trimmed/${base}_2.trim.fastq" \
+          --cut_right --cut_window_size 4 --cut_mean_quality 20 \
+          --length_required 36 \
+          --json "data/trimmed/${base}_fastp.json" \
+          --html "data/trimmed/${base}_fastp.html"
 done
+
+echo "=== 5. Running Post-Trim FastQC ==="
+fastqc data/trimmed/*.trim.fastq -t 4
+
+echo "=== 6. Generating Final Post-Trim MultiQC Report ==="
+multiqc data/trimmed/ -f -n post_trim_multiqc_report.html
+
+echo "=== PIPELINE COMPLETE SUCCESSFULLY ==="

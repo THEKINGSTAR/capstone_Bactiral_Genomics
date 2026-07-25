@@ -41,7 +41,10 @@ For the capstone project, you will complete a full `WGS` ****quality-control****
 
 - Two questions in the form (Sections 3 and 6) have a `500-character` limit, and the comparative report in Section 8 has a `700-character` (`~100-word`) limit. The form will block submission until you're under the limit, so draft your answer separately first if it's tight.
 
-***`Deadline: 26th July, 2026 at 11:59PM GMT`***
+## Post-Trim Quality Control Report
+You can view the interactive MultiQC report directly below:
 
+<iframe src="./post_trim_multiqc_report.html" width="100%" height="600px" style="border:none;">
+</iframe>
 
 
