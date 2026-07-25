@@ -44,7 +44,5 @@ For the capstone project, you will complete a full `WGS` ****quality-control****
 ## Post-Trim Quality Control Report
 You can view the interactive MultiQC report directly below:
 
-<iframe src="post_trim_multiqc_report.html" width="100%" height="600px" style="border:none;">
-</iframe>
 
-<iframe src="https://github.com/THEKINGSTAR/capstone_Bactiral_Genomics/post_trim_multiqc_report.html" width="100%" height="600px" style="border:none;"></iframe>
+<iframe src="https://htmlpreview.github.io/?https://github.com/THEKINGSTAR/capstone_Bactiral_Genomics/blob/main/post_trim_multiqc_report.html" width="100%" height="600px" style="border:none;"></iframe>
