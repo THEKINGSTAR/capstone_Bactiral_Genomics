@@ -1,0 +1,16 @@
+*.log
+*.tmp
+*.bak
+
+.DS_Store
+Thumbs.db
+
+__pycache__/
+
+*.swp
+
+*.fq
+*.fastq
+
+*.fq.gz
+*.fastq.gz
