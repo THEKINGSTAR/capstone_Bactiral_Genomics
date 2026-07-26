@@ -1,4 +1,4 @@
-# 🧬 Bacterial Genomics Capstone Project
+# [🧬 Bacterial Genomics Capstone Project](https://github.com/THEKINGSTAR/capstone_Bactiral_Genomics.git)
 
 ## Whole Genome Sequencing (WGS) Quality Control Pipeline
 
@@ -24,19 +24,21 @@ The workflow follows standard bioinformatics practices for processing paired-end
 
 By completing this project, participants will be able to:
 
-* Navigate the NCBI databases to locate a BioProject and its associated SRA runs.
-* Retrieve sequencing data using the SRA Toolkit.
+* Navigate the `NCBI` databases to locate a `BioProject` and its associated `SRA` runs.
+* Retrieve sequencing data using the `SRA` `Toolkit`.
 * Organize a reproducible bioinformatics project structure.
-* Determine expected genome characteristics (genome size and GC content).
-* Evaluate raw sequencing quality using FastQC.
-* Aggregate QC reports using MultiQC.
-* Perform adapter and quality trimming using fastp or Trimmomatic.
+* Determine expected genome characteristics (genome size and `GC` content).
+* Evaluate `raw` sequencing quality using `FastQC`.
+* Aggregate `QC` reports using `MultiQC`.
+* Perform adapter and quality trimming using `fastp` or `Trimmomatic`.
 * Compare sequencing quality before and after trimming.
 * Produce a concise quality-control report suitable for scientific documentation.
 
 ---
 
 # 📂 Dataset Information
+
+<div align="center">
 
 | Item                    | Value                            |
 | ----------------------- | -------------------------------- |
@@ -47,83 +49,89 @@ By completing this project, participants will be able to:
 | **Number of Samples**   | 10 SRA Runs                      |
 | **Source Database**     | NCBI Sequence Read Archive (SRA) |
 
+</div>
+
 ---
 
 # 🔬 Project Workflow
 
-```text
-NCBI BioProject
-        │
-        ▼
-SRA Run Selector
-        │
-        ▼
-FASTQ Download
-        │
-        ▼
-Data Verification
-        │
-        ▼
-FastQC (Pre-trim)
-        │
-        ▼
-MultiQC Summary
-        │
-        ▼
-Read Trimming
- (fastp / Trimmomatic)
-        │
-        ▼
-FastQC (Post-trim)
-        │
-        ▼
-MultiQC Summary
-        │
-        ▼
-Comparative QC Report
-```
+<div align="center">
+
+    NCBI BioProject
+            │
+            ▼
+    SRA Run Selector
+            │
+            ▼
+    FASTQ Download
+            │
+            ▼
+    Data Verification
+            │
+            ▼
+    FastQC (Pre-trim)
+            │
+            ▼
+    MultiQC Summary
+            │
+            ▼
+    Read Trimming
+     (fastp / Trimmomatic)
+            │
+            ▼
+    FastQC (Post-trim)
+            │
+            ▼
+    MultiQC Summary
+            │
+            ▼
+    Comparative QC Report
+
+</div>
 
 ---
 
 # 📁 Project Structure
 
-```text
-capstone_Bactiral_Genomics/
-│
-├── raw_data/
-│
-├── trimmed_reads/
-│
-├── fastqc_results/
-│
-├── multiqc_results/
-│
-├── scripts/
-│
-├── logs/
-│
-├── results/
-│
-├── docs/
-│
-├── post_trim_multiqc_report.html
-│
-└── README.md
-```
+    capstone_Bactiral_Genomics/
+    │
+    ├── raw_data/
+    │
+    ├── trimmed_reads/
+    │
+    ├── fastqc_results/
+    │
+    ├── multiqc_results/
+    │
+    ├── scripts/
+    │
+    ├── logs/
+    │
+    ├── results/
+    │
+    ├── docs/
+    │
+    ├── post_trim_multiqc_report.html
+    │
+    └── README.md
 
 ---
 
 # 🛠 Software Used
 
-| Software    | Purpose                   |
-| ----------- | ------------------------- |
-| SRA Toolkit | Download sequencing data  |
-| FastQC      | Read quality assessment   |
-| MultiQC     | Aggregate QC reports      |
-| fastp       | Read trimming             |
-| Trimmomatic | Alternative trimming tool |
-| Bash        | Workflow automation       |
-| Linux       | Analysis environment      |
+<div align='center'>
+
+| **Software**      | **Purpose**                   |
+| -----------   | ------------------------- |
+| `SRA Toolkit `| Download sequencing data  |
+| `FastQC`      | Read quality assessment   |
+| `MultiQC`     | Aggregate QC reports      |
+| `fastp`       | Read trimming             |
+| `Trimmomatic` | Alternative trimming tool |
+| `Bash`        | Workflow automation       |
+| `Linux`       | Analysis environment      |
+
+</div>
 
 ---
 
@@ -157,13 +165,11 @@ or
 
 Typical trimming parameters include:
 
-```text
-ILLUMINACLIP
-SLIDINGWINDOW:4:20
-LEADING:3
-TRAILING:3
-MINLEN:36
-```
+    ILLUMINACLIP
+    SLIDINGWINDOW:4:20
+    LEADING:3
+    TRAILING:3
+    MINLEN:36
 
 ---
 
@@ -175,19 +181,17 @@ Following trimming, FastQC and MultiQC were executed again to evaluate improveme
 
 # 📈 Interactive Reports
 
+## 📄 Pre-Trimming MultiQC Report
+
+➡ **Open the interactive reports here:**
+
+- [Pre-Trim MultiQC](https://thekingstar.github.io/capstone_Bactiral_Genomics/multiqc_results/post_trim_multiqc_report.html)
+
 ## 📄 Post-Trimming MultiQC Report
 
-GitHub does not allow embedding interactive HTML reports directly inside a README.
+➡ **Open the interactive reports here:**
 
-➡ **Open the interactive report here:**
-
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/THEKINGSTAR/capstone_Bactiral_Genomics/main/post_trim_multiqc_report.html
-
-If GitHub Pages is enabled for this repository, the report can also be accessed directly from:
-
-```
-https://thekingstar.github.io/capstone_Bactiral_Genomics/post_trim_multiqc_report.html
-```
+- [Post-Trim MultiQC](https://thekingstar.github.io/capstone_Bactiral_Genomics/multiqc_results/post_trim_multiqc_report.html)
 
 ---
 
@@ -211,16 +215,22 @@ https://thekingstar.github.io/capstone_Bactiral_Genomics/post_trim_multiqc_repor
 
 The project includes the complete workflow required for the capstone assessment:
 
-1. Navigate NCBI to locate BioProject **PRJNA1478106**.
+1. Navigate `NCBI` to locate `BioProject` **`PRJNA1478106`**.
 2. Retrieve all associated paired-end sequencing runs.
 3. Organize a reproducible project directory.
-4. Obtain genome size and GC-content metadata.
+4. Obtain genome size and `GC-content` metadata.
 5. Assess sequencing quality before trimming.
 6. Trim adapters and low-quality bases.
 7. Reassess sequencing quality after trimming.
-8. Compare pre- and post-trimming quality metrics.
-9. Produce a concise quality-control report.
+8. Compare `pre-` and `post-` `trimming` quality metrics.
+9. Produce a concise `quality-control` report.
 10. Submit the required deliverables.
+
+---
+
+# 🤝 Acknowledgments & Workshop Context
+
+This capstone project was developed as part of specialized bioinformatics training conducted by **[CSIR-ARI](https://www.csir.org.gh/)** in collaboration with **[Omics Hub](https://omicshub.org/)**, and generously supported by **[The Company of Biologists](https://www.biologists.com/)**.
 
 ---
 
@@ -234,12 +244,12 @@ Each analysis step is documented, and all scripts can be executed independently 
 
 # 📖 References
 
-* NCBI Sequence Read Archive (SRA)
-* NCBI BioProject Database
-* FastQC Documentation
-* MultiQC Documentation
-* fastp Documentation
-* Trimmomatic Documentation
+* `NCBI` Sequence Read Archive (`SRA`)
+* `NCBI` `BioProject` Database
+* `FastQC` Documentation
+* `MultiQC` Documentation
+* `fastp` Documentation
+* `Trimmomatic` Documentation
 
 ---
 
@@ -247,12 +257,12 @@ Each analysis step is documented, and all scripts can be executed independently 
 
 **Khaled Mohamed Fathallah**
 
-Bioinformatics Researcher | Data Engineer | Software Engineer
+Bioinformatics Researcher | Data Scientist | Data Engineer | Software Engineer
 
 ---
 
 # 📜 License
 
-This repository is intended for educational and research purposes.
+[MIT](https://opensource.org/license/mit) License : This repository is intended for educational and research purposes.
 
 If you use this workflow as a reference, please consider citing the original software packages used throughout the analysis.
