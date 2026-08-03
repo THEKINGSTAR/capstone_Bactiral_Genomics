@@ -55,39 +55,18 @@ By completing this project, participants will be able to:
 
 # 🔬 Project Workflow
 
-<div align="center">
-
-    NCBI BioProject
-            │
-            ▼
-    SRA Run Selector
-            │
-            ▼
-    FASTQ Download
-            │
-            ▼
-    Data Verification
-            │
-            ▼
-    FastQC (Pre-trim)
-            │
-            ▼
-    MultiQC Summary
-            │
-            ▼
-    Read Trimming
-     (fastp / Trimmomatic)
-            │
-            ▼
-    FastQC (Post-trim)
-            │
-            ▼
-    MultiQC Summary
-            │
-            ▼
-    Comparative QC Report
-
-</div>
+```mermaid
+graph TD
+    A[NCBI BioProject] --> B[SRA Run Selector]
+    B --> C[FASTQ Download]
+    C --> D[Data Verification]
+    D --> E[FastQC Pre-trim]
+    E --> F[MultiQC Summary]
+    F --> G[Read Trimming fastp / Trimmomatic]
+    G --> H[FastQC Post-trim]
+    H --> I[MultiQC Summary]
+    I --> J[Comparative QC Report]
+```
 
 ---
 
